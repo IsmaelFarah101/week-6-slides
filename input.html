@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Input Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <div id = "app">
+        <label for="name">Enter name here: </label><input v-model="name" id="name"></input>
+        <p v-if="name">Your name is {{name}}</p>
+    </div>
+    <script>
+    let app = new Vue({
+        el:"#app",
+        data: {
+            name:""
+        }
+    })
+    
+    </script>
+</html>

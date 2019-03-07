@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Shopping Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <style>
+        th,td{
+            width:25%;
+            text-align:center
+        }
+    </style>
+    <div id = "app">
+      <table>
+          <tr>
+              <th>Item</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+          </tr>
+          <tr>
+              <td>{{name}}</td>
+              <td>{{unitPrice}}</td>
+              <td><input type="number" id="quantity" v-model="quantity"></inpuy></td>
+              <td id="total"> ${{total | decimalPlaces(2)}}</td>
+          </tr>
+      </table>
+    </div>
+    <script>
+    let app = new Vue({
+        el:"#app",
+        data: {
+            name:"Hat",
+            quantity:0,
+            unitPrice:4.99
+        },
+        computed:{
+            total: function(){
+                return this.quantity * this.unitPrice
+            }
+        },
+        filters:{
+            decimalPlaces: function(price , decimalPlaces){
+                return price.toFixed(decimalPlaces)
+            }
+        }
+    })
+    
+    </script>
+</html>
